@@ -7,8 +7,9 @@ public class Menu {
 
 	
 	public static void main(String [] arg) throws IOException, ParseException {
-		Scanner entradaEscaner = new Scanner (System.in); 
 		
+		@SuppressWarnings("resource")
+		Scanner entradaEscaner = new Scanner (System.in); 
 		
 		while(true) {
 			
@@ -16,7 +17,9 @@ public class Menu {
 		System.out.println("1. Agregar Articulo");
 		System.out.println("2. Eliminar Articulo");
 		System.out.println("3. Buscar Articulo");
-		System.out.println("4. Mostrar Inventario \n");
+		System.out.println("4. Mostrar Inventario");
+		System.out.println("5. Actualizar Inventario \n");
+		System.out.println("6. Imprimir Inventario \n");
 		
 		
 		String entrada = entradaEscaner.nextLine ();
@@ -27,29 +30,22 @@ public class Menu {
 		case 1: inventario.agregarArticulo();
 		break;
 		
-		case 2:
-			
+		case 2: inventario.eliminarInventario();
 		break;
 		
-		case 3: inventario.eliminarInventario();
+		case 3: inventario.buscarInventario();
 		break;
 		
-		
-		case 4:  inventario.mostrarInventario();
+		case 4: inventario.mostrarInventario();
 		break;
 		
+		case 5: inventario.actualizarArticulo();
+		break;
+		
+		case 6: documento.guardarInventario();
+		break;
+		
+			}
 		}
-		}
-		
-		
-	
-		
-		
-	}
-
-	private static void inventario() {
-		// TODO Auto-generated method stub
-		
-	}
-		
+	}			
 }
