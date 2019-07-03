@@ -5,15 +5,14 @@ import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Scanner;
-import org.json.simple.parser.ParseException;
 
-public class inventario extends documento{
-	static Scanner entradaEscaner = new Scanner (System.in); 
-	static String RUTA = "C:\\Users\\Marco\\eclipse-workspace\\Inventario\\inventario\\";
+public class inventario {
+	 private Scanner entradaEscaner = new Scanner (System.in); 
+	 private String RUTA = "C:\\Users\\Marco\\eclipse-workspace\\Inventario\\inventario\\";
 	
 	
 @SuppressWarnings("resource")
-public static void mostrarInventario() throws IOException, ParseException  {
+public void mostrarInventario() throws IOException {
 	
 	
 	FilenameFilter filter=new FilenameFilter(){
@@ -25,23 +24,22 @@ public static void mostrarInventario() throws IOException, ParseException  {
 		File f=new File(RUTA);
 		String [] fileList=f.list(filter);
 		
-		
 		for (int i=0; i < fileList.length; i++){
 
 		  String entireFileText = new Scanner(new File(RUTA +fileList[i]))
-		  .useDelimiter("\\A").next();
+		  .useDelimiter("\r\n").next();
 		  
 		 System.out.println(entireFileText);
 			 
 	}	
+		
+		return;	
 }
 
 
 @SuppressWarnings("resource")
-public static void buscarInventario() throws IOException  {
- 
-	
-	
+public void buscarInventario() throws IOException  {
+
 	System.out.println("Nombre del articulo a Buscar: ");
 	String producto = entradaEscaner.nextLine ();
 	
@@ -63,14 +61,10 @@ public static void buscarInventario() throws IOException  {
          System.out.println("\n" +producto + " No Existe en Inventario"); 
 	
      }
-	
-	
-	
-
    	}
 
 
-public static void eliminarInventario(){
+public void eliminarInventario(){
 	
 	System.out.println("Nombre del articulo a Eliminar: ");
 	String producto = entradaEscaner.nextLine ();
@@ -87,7 +81,7 @@ public static void eliminarInventario(){
     }
 
 	
-public static void agregarArticulo() throws IOException	{	
+public void agregarArticulo() throws IOException	{	
 	
 	
 	System.out.println("Nombre del articulo a agregar: ");
@@ -107,10 +101,11 @@ public static void agregarArticulo() throws IOException	{
 	
 	System.out.print(producto + " Agregad@ al inventario \n \n");
     }
+	
 }
 
 
-public static void actualizarArticulo() throws IOException {
+public void actualizarArticulo() throws IOException {
 	
 	System.out.println("Nombre del articulo a actualizar: ");
 	String producto = entradaEscaner.nextLine ();
@@ -127,7 +122,6 @@ public static void actualizarArticulo() throws IOException {
     				
 
     	System.out.println("****"+ producto + " Ha sido actualizado ****");
-	
 	}
        
     else {
