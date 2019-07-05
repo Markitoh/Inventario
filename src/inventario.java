@@ -6,7 +6,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class inventario {
+public class inventario extends login{
 	 private Scanner entradaEscaner = new Scanner (System.in); 
 	 private String RUTA = "C:\\Users\\Marco\\eclipse-workspace\\Inventario\\inventario\\";
 	
@@ -35,7 +35,6 @@ public void mostrarInventario() throws IOException {
 		
 		return;	
 }
-
 
 @SuppressWarnings("resource")
 public void buscarInventario() throws IOException  {
@@ -108,6 +107,7 @@ public void agregarArticulo() throws IOException	{
 public void actualizarArticulo() throws IOException {
 	
 	System.out.println("Nombre del articulo a actualizar: ");
+	
 	String producto = entradaEscaner.nextLine ();
 	File articulo = new File(RUTA + producto +".csv"); 
 	
